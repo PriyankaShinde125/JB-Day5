@@ -4,28 +4,47 @@ public class Main {
     public static final int FLIP_COIN = 1;
     public static final int LEAP_YEAR = 2;
     public static final int TWO_POWERS_TABLE = 3;
+    public static final int HARMONIC_NUMBER = 4;
     static Scanner sc;
 
     public static void main(String[] args) {
-        Main mainobj = new Main();
+        Main mainObj = new Main();
         System.out.println("Enter your choice : ");
         System.out.println(" 1 : Flip a coin ");
         System.out.println(" 2 : Check leap year ");
         System.out.println(" 3 : Print table of powers of two ");
+        System.out.println(" 4 : Find nth harmonic number ");
         sc = new Scanner(System.in);
         int choice = sc.nextInt();
         switch (choice) {
             case FLIP_COIN:
-                mainobj.flipCoin();
+                mainObj.flipCoin();
                 break;
             case LEAP_YEAR:
-                mainobj.isLeapYear();
+                mainObj.isLeapYear();
                 break;
             case TWO_POWERS_TABLE:
-                mainobj.printPowersTable();
+                mainObj.printPowersTable();
+                break;
+            case HARMONIC_NUMBER:
+                mainObj.getHarmonicNum();
                 break;
             default:
                 System.out.println("INVALID CHOICE");
+        }
+    }
+
+    private void getHarmonicNum() {
+        System.out.println("Enter a number");
+        int num = sc.nextInt();
+        if (num != 0) {
+            double harmonicNumber = 0;
+            for (int term = 1; term <= num; term++) {
+                harmonicNumber += (double) 1 / term;
+            }
+            System.out.println("Harmonic number = " + harmonicNumber);
+        } else {
+            System.out.println("Enter positive number ");
         }
     }
 
