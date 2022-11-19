@@ -6,6 +6,7 @@ public class Main {
     public static final int TWO_POWERS_TABLE = 3;
     public static final int HARMONIC_NUMBER = 4;
     public static final int PRIME_FACTORS = 5;
+    public static final int QUOTIENT_AND_REMAINDER = 6;
     static Scanner sc;
 
     public static void main(String[] args) {
@@ -16,6 +17,7 @@ public class Main {
         System.out.println(" 3 : Print table of powers of two ");
         System.out.println(" 4 : Find nth harmonic number ");
         System.out.println(" 5 : Print all prime factors of given number ");
+        System.out.println(" 6 : Print quotient and remainder");
         sc = new Scanner(System.in);
         int choice = sc.nextInt();
         switch (choice) {
@@ -34,9 +36,22 @@ public class Main {
             case PRIME_FACTORS:
                 mainObj.printPrimeFactors();
                 break;
+            case QUOTIENT_AND_REMAINDER:
+                mainObj.printQuotientAndRemainder();
+                break;
             default:
                 System.out.println("INVALID CHOICE");
         }
+    }
+
+    private void printQuotientAndRemainder() {
+        System.out.println("Enter a dividend and divisor");
+        int dividend = sc.nextInt();
+        int divisor = sc.nextInt();
+        int quotient = dividend / divisor;
+        int remainder = dividend % divisor;
+        System.out.println("Quotient = " + quotient);
+        System.out.println("Remainder = " + remainder);
     }
 
     private void printPrimeFactors() {
