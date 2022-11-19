@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static final int FLIP_COIN = 1;
     public static final int LEAP_YEAR = 2;
+    public static final int TWO_POWERS_TABLE = 3;
     static Scanner sc;
 
     public static void main(String[] args) {
@@ -10,6 +11,7 @@ public class Main {
         System.out.println("Enter your choice : ");
         System.out.println(" 1 : Flip a coin ");
         System.out.println(" 2 : Check leap year ");
+        System.out.println(" 3 : Print table of powers of two ");
         sc = new Scanner(System.in);
         int choice = sc.nextInt();
         switch (choice) {
@@ -19,8 +21,21 @@ public class Main {
             case LEAP_YEAR:
                 mainobj.isLeapYear();
                 break;
+            case TWO_POWERS_TABLE:
+                mainobj.printPowersTable();
+                break;
             default:
                 System.out.println("INVALID CHOICE");
+        }
+    }
+
+    private void printPowersTable() {
+        System.out.println("How many terms do you wants to print :");
+        int uptoNum = sc.nextInt();
+        int tableOf = 2;
+        for (int powValue = 1; powValue <= uptoNum; powValue++) {
+            int term = (int) Math.pow(tableOf, powValue);
+            System.out.println(term);
         }
     }
 
