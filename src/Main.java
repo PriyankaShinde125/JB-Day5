@@ -5,6 +5,7 @@ public class Main {
     public static final int LEAP_YEAR = 2;
     public static final int TWO_POWERS_TABLE = 3;
     public static final int HARMONIC_NUMBER = 4;
+    public static final int PRIME_FACTORS = 5;
     static Scanner sc;
 
     public static void main(String[] args) {
@@ -14,6 +15,7 @@ public class Main {
         System.out.println(" 2 : Check leap year ");
         System.out.println(" 3 : Print table of powers of two ");
         System.out.println(" 4 : Find nth harmonic number ");
+        System.out.println(" 5 : Print all prime factors of given number ");
         sc = new Scanner(System.in);
         int choice = sc.nextInt();
         switch (choice) {
@@ -29,9 +31,32 @@ public class Main {
             case HARMONIC_NUMBER:
                 mainObj.getHarmonicNum();
                 break;
+            case PRIME_FACTORS:
+                mainObj.printPrimeFactors();
+                break;
             default:
                 System.out.println("INVALID CHOICE");
         }
+    }
+
+    private void printPrimeFactors() {
+        System.out.println("Enter a number");
+        int num = sc.nextInt();
+
+        while (num % 2 == 0) {
+            System.out.print(2 + " ");
+            num = num / 2;
+        }
+
+        for (int i = 3; (i * i) <= num; i += 2) {
+            while (num % i == 0) {
+                System.out.print(i + " ");
+                num = num / i;
+            }
+        }
+
+        if (num > 2)
+            System.out.print(num);
     }
 
     private void getHarmonicNum() {
