@@ -1,8 +1,43 @@
 import java.util.Scanner;
 
 public class Main {
+    public static final int FLIP_COIN = 1;
+    public static final int LEAP_YEAR = 2;
+    static Scanner sc;
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Main mainobj = new Main();
+        System.out.println("Enter your choice : ");
+        System.out.println(" 1 : Flip a coin ");
+        System.out.println(" 2 : Check leap year ");
+        sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        switch (choice) {
+            case FLIP_COIN:
+                mainobj.flipCoin();
+                break;
+            case LEAP_YEAR:
+                mainobj.isLeapYear();
+                break;
+            default:
+                System.out.println("INVALID CHOICE");
+        }
+    }
+
+    private void isLeapYear() {
+        int year;
+        boolean isLeap = false;
+        System.out.println("Enter year");
+        year = sc.nextInt();
+        int digitCount = (int) Math.floor(Math.log10(year) + 1);
+        isLeap = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+        if (digitCount == 4) {
+            System.out.println(isLeap ? year + " is leap year" : year + " is not leap year");
+        } else
+            System.out.println("Invalid year");
+    }
+
+    private void flipCoin() {
         System.out.println("Enter how many times you want to flip coin");
         int num = sc.nextInt();
         int head = 0;
