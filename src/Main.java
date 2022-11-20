@@ -8,6 +8,7 @@ public class Main {
     public static final int PRIME_FACTORS = 5;
     public static final int QUOTIENT_AND_REMAINDER = 6;
     public static final int SWAP_NUMBERS = 7;
+    public static final int EVEN_ODD = 8;
     static Scanner sc;
 
     public static void main(String[] args) {
@@ -20,6 +21,7 @@ public class Main {
         System.out.println(" 5 : Print all prime factors of given number ");
         System.out.println(" 6 : Print quotient and remainder");
         System.out.println(" 7 : Swap two numbers ");
+        System.out.println(" 8 : Check number is even or odd ");
         sc = new Scanner(System.in);
         int choice = sc.nextInt();
         switch (choice) {
@@ -44,9 +46,18 @@ public class Main {
             case SWAP_NUMBERS:
                 mainObj.swapNumbers();
                 break;
+            case EVEN_ODD:
+                mainObj.isEven();
+                break;
             default:
                 System.out.println("INVALID CHOICE");
         }
+    }
+
+    private void isEven() {
+        System.out.println("Enter number ");
+        int num = sc.nextInt();
+        System.out.println(num % 2 == 0 ? num + " is even number" : num + " is odd number");
     }
 
     private void swapNumbers() {
@@ -54,9 +65,9 @@ public class Main {
         int num1 = sc.nextInt();
         int num2 = sc.nextInt();
         System.out.println("Numbers before swapping num1 = " + num1 + " num2 = " + num2);
-        int temp=num1;
-        num1=num2;
-        num2=temp;
+        int temp = num1;
+        num1 = num2;
+        num2 = temp;
         System.out.println("Numbers after swapping num1 = " + num1 + " num2 = " + num2);
     }
 
