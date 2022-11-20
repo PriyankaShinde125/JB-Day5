@@ -12,6 +12,7 @@ public class Main {
     public static final int SWAP_NUMBERS = 7;
     public static final int EVEN_ODD = 8;
     public static final int VOWEL_CONSONANT = 9;
+    public static final int LARGEST_AMONG_THREE = 10;
     static Scanner sc;
 
     public static void main(String[] args) {
@@ -26,6 +27,7 @@ public class Main {
         System.out.println(" 7 : Swap two numbers ");
         System.out.println(" 8 : Check number is even or odd ");
         System.out.println(" 9 : Check alphabet is vowel or consonant ");
+        System.out.println(" 10 : Find largest among three numbers ");
         sc = new Scanner(System.in);
         int choice = sc.nextInt();
         switch (choice) {
@@ -56,9 +58,21 @@ public class Main {
             case VOWEL_CONSONANT:
                 mainObj.isVowel();
                 break;
+            case LARGEST_AMONG_THREE:
+                mainObj.findLargest();
+                break;
             default:
                 System.out.println("INVALID CHOICE");
         }
+    }
+
+    private void findLargest() {
+        System.out.println("Enter three numbers : ");
+        int num1 = sc.nextInt();
+        int num2 = sc.nextInt();
+        int num3 = sc.nextInt();
+        int largest = Math.max(num3, (Math.max(num1, num2)));
+        System.out.println("Largest number is : " + largest);
     }
 
     private void isVowel() {
