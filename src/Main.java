@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import static java.lang.Character.toLowerCase;
+
 public class Main {
     public static final int FLIP_COIN = 1;
     public static final int LEAP_YEAR = 2;
@@ -9,6 +11,7 @@ public class Main {
     public static final int QUOTIENT_AND_REMAINDER = 6;
     public static final int SWAP_NUMBERS = 7;
     public static final int EVEN_ODD = 8;
+    public static final int VOWEL_CONSONANT = 9;
     static Scanner sc;
 
     public static void main(String[] args) {
@@ -22,6 +25,7 @@ public class Main {
         System.out.println(" 6 : Print quotient and remainder");
         System.out.println(" 7 : Swap two numbers ");
         System.out.println(" 8 : Check number is even or odd ");
+        System.out.println(" 9 : Check alphabet is vowel or consonant ");
         sc = new Scanner(System.in);
         int choice = sc.nextInt();
         switch (choice) {
@@ -49,9 +53,35 @@ public class Main {
             case EVEN_ODD:
                 mainObj.isEven();
                 break;
+            case VOWEL_CONSONANT:
+                mainObj.isVowel();
+                break;
             default:
                 System.out.println("INVALID CHOICE");
         }
+    }
+
+    private void isVowel() {
+        System.out.println("Enter a alphabet :");
+        sc = new Scanner(System.in);
+        char alphabet = sc.next().charAt(0);
+        toLowerCase(alphabet);
+        boolean isVowel;
+        switch (alphabet) {
+            case 'a':
+            case 'u':
+            case 'e':
+            case 'i':
+            case 'o':
+                isVowel = true;
+                break;
+            default:
+                isVowel = false;
+                break;
+        }
+        if (isVowel)
+            System.out.println("It is vowel");
+        else System.out.println("It is Consonant");
     }
 
     private void isEven() {
