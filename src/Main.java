@@ -17,7 +17,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main mainObj = new Main();
-        System.out.println("Enter your choice : ");
+        System.out.println("Select an option : ");
         System.out.println(" 1 : Flip a coin ");
         System.out.println(" 2 : Check leap year ");
         System.out.println(" 3 : Print table of powers of two ");
